@@ -1,0 +1,37 @@
+{
+  "name": "rate-limit-promise",
+  "version": "0.0.1",
+  "description": "rate limiting for executing a list of asynchronous processes.",
+  "main": "index.js",
+  "scripts": {
+    "build": "$(npm bin)/tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cm-wada-yusuke/rate-limit-promise.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Promise"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cm-wada-yusuke/rate-limit-promise/issues"
+  },
+  "homepage": "https://github.com/cm-wada-yusuke/rate-limit-promise#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/luxon": "^1.15.2",
+    "@types/node": "^12.0.10",
+    "jest": "^24.8.0",
+    "luxon": "^1.16.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "delay": "^4.3.0"
+  }
+}
