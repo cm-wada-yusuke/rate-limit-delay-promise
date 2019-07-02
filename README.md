@@ -14,7 +14,7 @@ $ npm install rate-limit-delay-promise
 Usage
 ---
 
-Call `RateLimitPromise.all()` instead of `Promise.all()`.
+Call `RateLimitDelayPromise.all()` instead of `Promise.all()`.
 
 ### Before
 
@@ -49,11 +49,11 @@ It is very useful, but if the external API `requestMaster` has a rate limit, you
 
 
 ```typescript
-import { **RateLimitPromise** } from 'rate-limit-delay-promise';
+import { RateLimitDelayPromise } from 'rate-limit-delay-promise';
 
 function limitMain(){
     const masters = [1,2,3];
-    RateLimitPromise.all(masters, DummyRemoteProcess.requestMaster, 2000)
+    RateLimitDelayPromise.all(masters, DummyRemoteProcess.requestMaster, 2000)
         .then(console.log);
 }
 
