@@ -1,5 +1,5 @@
 {
-  "name": "rate-limit-promise",
+  "name": "rate-limit-delay-promise",
   "version": "0.0.1",
   "description": "rate limiting for executing a list of asynchronous processes.",
   "main": "index.js",

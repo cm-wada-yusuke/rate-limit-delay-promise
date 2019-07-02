@@ -1,5 +1,5 @@
-import { RateLimitPromise } from '.';
 import { DateTime } from 'luxon';
+import { RateLimitDelayPromise } from './index';
 
 export class DummyRemoteProcess {
     static requestMaster(master: number): Promise<string> {
@@ -23,7 +23,7 @@ test('import', async () => {
         return DummyRemoteProcess.requestMaster(masterNumber)
     };
 
-    const actual = await RateLimitPromise.all(masterEnum, getMasterStringFunction, 1000);
+    const actual = await RateLimitDelayPromise.all(masterEnum, getMasterStringFunction, 1000);
     const expected = ['one', 'two', 'three'];
     expect(actual).toEqual(expected);
 });
@@ -36,7 +36,7 @@ test('wait for delay', async () => {
     };
 
     const before = DateTime.utc();
-    await RateLimitPromise.all(masterEnum, getMasterStringFunction, 1000);
+    await RateLimitDelayPromise.all(masterEnum, getMasterStringFunction, 1000);
     const after = DateTime.utc();
 
     const actualTake = after.toMillis() - before.toMillis();

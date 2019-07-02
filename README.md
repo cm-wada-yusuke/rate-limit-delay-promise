@@ -1,4 +1,4 @@
-rate-limit-promise
+rate-limit-delay-promise
 ===
 
 A library that performs rate limiting when executing a list of asynchronous processes.
@@ -8,7 +8,7 @@ Install
 ---
 
 ```
-$ npm install rate-limit-promise
+$ npm install rate-limit-delay-promise
 ```
 
 Usage
@@ -48,8 +48,8 @@ It is very useful, but if the external API `requestMaster` has a rate limit, you
 ### After
 
 
-```typescript 
-import { RateLimitPromise } from 'rate-limit-promise';
+```typescript
+import { **RateLimitPromise** } from 'rate-limit-delay-promise';
 
 function limitMain(){
     const masters = [1,2,3];
@@ -74,7 +74,7 @@ class DummyRemoteProcess {
 limitMain();
 ```
 
-`$ ts-node test.ts`
+`$ ts-node check.ts`
 
 ![test.gif](test.gif);
 

@@ -1,14 +1,14 @@
-import { RateLimitPromise } from '.';
+import { RateLimitDelayPromise } from '.';
 
-function main() {
-    const masters = [1,2,3];
-    const promises: Promise<string>[] = masters.map(DummyRemoteProcess.requestMaster);
-    Promise.all(promises).then(console.log);
-}
+// function main() {
+//     const masters = [1,2,3];
+//     const promises: Promise<string>[] = masters.map(DummyRemoteProcess.requestMaster);
+//     Promise.all(promises).then(console.log);
+// }
 
 function limitMain(){
     const masters = [1,2,3];
-    RateLimitPromise.all(masters, DummyRemoteProcess.requestMaster, 2000)
+    RateLimitDelayPromise.all(masters, DummyRemoteProcess.requestMaster, 2000)
         .then(console.log);
 }
 
@@ -30,5 +30,5 @@ class DummyRemoteProcess {
     }
 }
 
-main();
+// main();
 limitMain();
