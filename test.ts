@@ -1,10 +1,10 @@
 import { RateLimitPromise } from '.';
 
-function main() {
-    const targetList = [1,2,3];
-    const promiseList: Promise<string>[] = targetList.map(DummyRemoteProcess.requestMaster);
-    Promise.all(promiseList).then(console.log);
-}
+// function main() {
+//     const targetList = [1,2,3];
+//     const promiseList: Promise<string>[] = targetList.map(DummyRemoteProcess.requestMaster);
+//     Promise.all(promiseList).then(console.log);
+// }
 
 function limitMain(){
     const targetList = [1,2,3];
@@ -30,5 +30,4 @@ class DummyRemoteProcess {
     }
 }
 
-main();
 limitMain();

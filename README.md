@@ -14,6 +14,7 @@ $ npm install rate-limit-promise
 Usage
 ---
 
+Call `RateLimitPromise.all()` instead of `Promise.all()`.
 
 ### Before
 
@@ -47,11 +48,11 @@ It is very useful, but if the external API `requestMaster` has a rate limit, you
 ### After
 
 
-```typescript
-function limitMain() {
+```typescript 
+function limitMain(){
     const targetList = [1,2,3];
-    const promiseList: Promise<string>[] = targetList.map(DummyRemoteProcess.requestMaster);
-    Promise.all(promiseList).then(console.log);
+    RateLimitPromise.all(targetList, DummyRemoteProcess.requestMaster, 2000)
+        .then(console.log);
 }
 
 class DummyRemoteProcess {
@@ -71,3 +72,10 @@ class DummyRemoteProcess {
 limitMain();
 ```
 
+![test.gif](test.gif);
+
+**!!WARNING:** Overall execution time will be extended by the delay, of course.
+
+License
+---
+MIT
