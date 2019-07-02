@@ -20,9 +20,9 @@ Call `RateLimitPromise.all()` instead of `Promise.all()`.
 
 ```typescript
 function main() {
-    const targetList = [1,2,3];
-    const promiseList: Promise<string>[] = targetList.map(DummyRemoteProcess.requestMaster);
-    Promise.all(promiseList).then(console.log);
+    const masters = [1,2,3];
+    const promises: Promise<string>[] = masters.map(DummyRemoteProcess.requestMaster);
+    Promise.all(promises).then(console.log);
 }
 
 class DummyRemoteProcess {
@@ -49,9 +49,11 @@ It is very useful, but if the external API `requestMaster` has a rate limit, you
 
 
 ```typescript 
+import { RateLimitPromise } from 'rate-limit-promise';
+
 function limitMain(){
-    const targetList = [1,2,3];
-    RateLimitPromise.all(targetList, DummyRemoteProcess.requestMaster, 2000)
+    const masters = [1,2,3];
+    RateLimitPromise.all(masters, DummyRemoteProcess.requestMaster, 2000)
         .then(console.log);
 }
 
@@ -72,9 +74,11 @@ class DummyRemoteProcess {
 limitMain();
 ```
 
+`$ ts-node test.ts`
+
 ![test.gif](test.gif);
 
-**!!WARNING:** Overall execution time will be extended by the delay, of course.
+**!!WARNING:** Overall execution time will be increased by your delay, of course.
 
 License
 ---
